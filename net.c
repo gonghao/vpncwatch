@@ -59,8 +59,10 @@ int is_network_up(char *chkhost, char *chkport) {
         if (sfd == -1)
             continue;
 
-        if (connect(sfd, rp->ai_addr, rp->ai_addrlen) != -1)
+        if (connect(sfd, rp->ai_addr, rp->ai_addrlen) != -1) {
+            close(sfd);
             break;                  /* Success */
+        }
 
         close(sfd);
     }
