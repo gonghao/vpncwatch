@@ -228,6 +228,7 @@ int main(int argc, char **argv) {
         if (do_restart) {
             stop_cmd(cmd, cmdpid);
             cmdpid = start_cmd(cmd, cmdpath, argv);
+            sleep(30);
         }
     }
 
